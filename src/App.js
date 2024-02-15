@@ -99,3 +99,6 @@ function AnotherTabContent() {
     </div>
   );
 }
+
+console.log(<AnotherTabContent item={123} />);
+console.log(AnotherTabContent());
