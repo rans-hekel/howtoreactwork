@@ -2,14 +2,17 @@ import { useState } from "react";
 
 const content = [
   {
+    id: 1,
     title: "Pendidikan Berkualitas",
     body: "Mendapatkan pendidikan yang baik dan relevan dengan minat dan tujuan karir Anda adalah langkah pertama menuju sukses. Ini membantu membangun fondasi pengetahuan dan keterampilan yang diperlukan.",
   },
   {
+    id: 2,
     title: "Kerja Keras dan Konsistensi",
     body: "Kerja keras, dedikasi, dan konsistensi adalah kunci untuk mencapai tujuan. Tetap fokus pada upaya Anda, terus belajar, dan tidak mudah menyerah adalah bagian penting dari perjalanan menuju sukses.",
   },
   {
+    id: 3,
     title: "Networking dan Kolaborasi",
     body: "Membangun hubungan dengan orang lain di bidang Anda, belajar dari mereka, dan bekerja sama dalam proyek-proyek yang relevan dapat membuka pintu untuk peluang baru dan memperluas jaringan profesional Anda.",
   },
@@ -62,6 +65,14 @@ function TabContent({ item }) {
   function handleInc() {
     setLikes(likes + 1);
   }
+  function handleUndo() {
+    setLikes(0);
+    setShowDetails(true);
+  }
+
+  function handleLikes() {
+    setLikes(likes + 3);
+  }
 
   return (
     <div className="tab-content">
@@ -76,12 +87,12 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} 👍</span>
           <button onClick={handleInc}>+1</button>
-          <button>+3</button>
+          <button onClick={handleLikes}>+3</button>
         </div>
       </div>
 
       <div className="tab-undo">
-        <button>Batal</button>
+        <button onClick={handleUndo}>Batal</button>
         <button>Batal dalam 2d</button>
       </div>
     </div>
@@ -99,6 +110,3 @@ function AnotherTabContent() {
     </div>
   );
 }
-
-console.log(<AnotherTabContent item={123} />);
-console.log(AnotherTabContent());
