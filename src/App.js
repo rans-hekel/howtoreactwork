@@ -74,6 +74,10 @@ function TabContent({ item }) {
     setLikes(likes + 3);
   }
 
+  function handleUndoLater() {
+    setTimeout(handleUndo, 2000);
+  }
+
   return (
     <div className="tab-content">
       <h4>{item.title}</h4>
@@ -93,7 +97,7 @@ function TabContent({ item }) {
 
       <div className="tab-undo">
         <button onClick={handleUndo}>Batal</button>
-        <button>Batal dalam 2d</button>
+        <button onClick={handleUndoLater}>Batal dalam 2d</button>
       </div>
     </div>
   );
